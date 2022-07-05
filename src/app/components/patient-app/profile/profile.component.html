@@ -1,0 +1,216 @@
+<section class="w-100 p-4" style="background-color: #eee; border-radius: .5rem .5rem 0 0;">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-gradient-primary me-2" (click)="isEditShow()" *ngIf="editableForm.visible">
+                Edit
+            </button>
+            <div class="card mb-4">
+                <form class="row justify-content-between" [formGroup]="profileModelForm">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Referral Code</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.user.referalCode"></p>
+                                <input type="text" formControlName="referalCode" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="Company Name" maxlength="30" />
+                                <div *ngIf="f.referalCode.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.referalCode.errors.required">
+                                        Referral Code is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Company Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.companyName"></p>
+                                <input type="text" formControlName="companyName" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="Company Name" maxlength="30" />
+                                <div *ngIf="f.companyName.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.companyName.errors.required">
+                                        Company Name is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.address"></p>
+                                <input type="text" formControlName="address" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="Address" maxlength="30" />
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">panCard</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.panCard"></p>
+                                <input type="text" formControlName="panCard" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="panCard" maxlength="30" />
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Account No.</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.accountNo"></p>
+                                <input type="text" formControlName="accountNo" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="accountNo" maxlength="10" autocomplete="off" />
+                                <div *ngIf="f.accountNo.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.accountNo.errors.required">
+                                        Acount No. is
+                                        required
+                                    </small>
+                                    <small *ngIf="f.accountNo.errors.pattern">Enter valid Account Number</small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Pan Card</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.panCard"></p>
+                                <input type="text" formControlName="panCard" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="Full Name" maxlength="80" />
+                                <div *ngIf="f.panCard.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.panCard.errors.required">
+                                        panCard is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Mobile</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.mobile"></p>
+                                <input type="text" formControlName="mobile" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="Mobile" maxlength="80" />
+                                <div *ngIf="f.mobile.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.mobile.errors.required">
+                                        Mobile number is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">GST No.</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.gstno"></p>
+                                <input type="text" formControlName="gstno" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="GST No." maxlength="80" />
+                                <div *ngIf="f.gstno.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.gstno.errors.required">
+                                        Gst No. number is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">GST Certification</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.gstcertificate"></p>
+                                <input type="text" formControlName="gstcertificate" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="gstcertificate" maxlength="80" />
+                                <div *ngIf="f.gstcertificate.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.gstcertificate.errors.required">
+                                        gstcertificate  number is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">IFSC Code</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.ifscCode"></p>
+                                <input type="text" formControlName="ifscCode" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="ifscCode" maxlength="80" />
+                                <div *ngIf="f.ifscCode.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.ifscCode.errors.required">
+                                        ifscCode  number is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0 pl-3">Certificate of Incorporation</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0" *ngIf="editableForm.visible" [innerHTML]="profileModel.kyc.certificationOfIncorporation"></p>
+                                <input type="text" formControlName="certificationOfIncorporation" class="form-control" *ngIf="!editableForm.visible"
+                                       placeholder="certificationOfIncorporation" maxlength="80" />
+                                <div *ngIf="f.certificationOfIncorporation.invalid && submitted " class="text-danger">
+                                    <small *ngIf="f.certificationOfIncorporation.errors.required">
+                                        certificationOfIncorporation  number is
+                                        required
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0"></p>
+                            </div>
+                            <div class="col-sm-9" *ngIf="!editableForm.visible">
+                                <button type="button" class="btn btn-gradient-primary me-2" (click)="updateprofileModel()">
+                                    Update
+                                </button>
+                                <button type="button" class="btn btn-gradient-primary me-2" (click)="isEditShow()">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <app-loading *ngIf="loading"></app-loading>
+
+        </div>
+    </div>
+
+</section>

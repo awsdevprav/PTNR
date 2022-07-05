@@ -1,0 +1,31 @@
+<div *ngIf="!showError">
+  <ng-container *ngIf="!isOnlySubmit">
+    <div class="errors" *ngIf="(isDirty && (f.dirty || isSubmit || f.touched)) && f.errors">
+      <span>
+        {{((f.dirty || isSubmit || f.touched)? getObjectLength(f.errors,messages) : '')}}
+      </span>
+    </div>
+
+    <div class="errors" *ngIf="(!isDirty && (f.touched || isSubmit)) && f.errors">
+      <span>
+        {{(((f.touched || isSubmit)) ? getObjectLength(f.errors,messages) : '')}}
+      </span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isOnlySubmit">
+    <div class="errors" *ngIf="isSubmit && f.errors">
+      <span>
+        {{((isSubmit)? getObjectLength(f.errors,messages) : '')}}
+      </span>
+    </div>
+  </ng-container>
+</div>
+
+<div *ngIf="showError">
+  <div class="errors" *ngIf="(!isDirty && (f.touched || isSubmit) || showError) && f.errors">
+    <span>
+      {{(((f.touched || isSubmit || showError)) ? getObjectLength(f.errors,messages) : '')}}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+version: 0.2
+phases:
+    install:
+        commands:
+            #- 'apt-get update'
+            #- 'apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7'
+            #- 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+            #- 'dpkg -i google-chrome*.deb'
+        runtime-versions:
+            nodejs: 14
+    pre_build:
+        commands:
+            - 'echo Installing source NPM new dependencies.....'
+            - 'pwd'
+            - 'ls -ltr'
+            - 'npm install -g @angular/cli@latest'
+            - 'npm install'
+    build:
+        commands:
+            - 'echo Build started on `date`'
+            - 'ng build'
+secondary-artifacts:
+    artifact1:
+        files:
+            - appspec.yml
+            - scripts/*
+        base-directory: 'dist*'
+artifacts:
+    files:
+        - 'dist/**/*'
+        - appspec.yml
+        - scripts/*
+    name: Malady-Center-App
+discard-paths: yes
+cache:
+  paths:
+    - '/root/.m2/**/*'

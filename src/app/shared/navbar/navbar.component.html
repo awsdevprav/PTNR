@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-primary-gradiant fixed-top navbar-transparent" color-on-scroll="500">
+  <div class="container">
+    <div class="navbar-translate">
+      <a class="navbar-brand" [routerLink]="['/index']" placement="bottom">
+        <img src="assets/logo-with-name.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+        (click)="sidebarToggle()">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" data-color="orange">
+      <nav class="mr-auto ml-auto">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="/#">
+              About us </a>
+          </li>
+          <li class="nav-item">
+            <a href="/#">
+              Our Services </a>
+          </li>
+          <li class="nav-item">
+            <a href="/#">
+              Contact us
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="collapse navbar-collapse" data-color="orange">
+      <div>
+        Help Center
+      </div>
+    </div>
+  </div>
+</nav>

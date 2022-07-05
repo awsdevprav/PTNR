@@ -1,0 +1,123 @@
+<div class="page-header">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">KYC Upload</li>
+        </ol>
+    </nav>
+    <h3 class="page-title">
+        <button type="submit" class="btn btn-gradient-primary me-2">Upload KYC Document to Complete the Registeration</button>
+    </h3>
+
+</div>
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">KYC Upload</h4>
+                <p class="card-description">
+                    All fields are mandatory
+                </p>
+                <form class="forms-sample" [formGroup]="kycUploadForm">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Company Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" formControlName="companyname" class="form-control" placeholder="Companyname" autocomplete="off" maxlength="30" />
+                            <app-error-message [isSubmit]="submitted" inputKey="companyname" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Address</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Address" formControlName="address" autocomplete="off" maxlength="30" />
+                            <app-error-message [isSubmit]="submitted" inputKey="address" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputMobile" class="col-sm-3 col-form-label">Account No.</label>
+                        <div class="col-sm-9">
+                            <input type="text" formControlName="accountno" class="form-control" placeholder="Account no" maxlength="10" autocomplete="off" />
+                            <app-error-message [isSubmit]="submitted" inputKey="accountno" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Pan Card</label>
+                        <div class="col-sm-9">
+                            <input type="text" formControlName="pancard" class="form-control" placeholder="Pan Card" autocomplete="off" maxlength="80" />
+                            <app-error-message [isSubmit]="submitted" inputKey="pancard" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Mobile</label>
+                        <div class="col-sm-9">
+                            <input type="text" formControlName="mobilenumber" class="form-control" placeholder="Mobile Number" maxlength="10" autocomplete="off" />
+                            <app-error-message [isSubmit]="submitted" inputKey="mobilenumber" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">GST No</label>
+                        <div class="col-sm-9">
+                            <input type="text" formControlName="GSTNo" class="form-control" placeholder="GST Number"  autocomplete="off" />
+                            <app-error-message [isSubmit]="submitted" inputKey="GSTNo" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">GST Certification</label>
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control  file-upload-info" placeholder="GST Certification" maxlength="10" autocomplete="off"
+                            (change)="onGSTFileSelect($event)"  />
+                            <app-error-message [isSubmit]="submitted" inputKey="gstcertification" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">IFSC Code</label>
+                        <div class="col-sm-9">
+                            <input type="text" formControlName="ifsccode" class="form-control" placeholder="IFSC Code" autocomplete="off" maxlength="80" />
+                            <app-error-message [isSubmit]="submitted" inputKey="ifsccode" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Certificate Of Incorporation</label>
+                        <div class="col-sm-9">
+                            <input type="file" (change)="onCertificateofincorporationFileSelect($event)" class="form-control  file-upload-info" placeholder="Certificate of Incorporation" autocomplete="off" maxlength="80" />
+                            <app-error-message [isSubmit]="submitted" inputKey="certificateofincorporation" [formControls]="f"
+                                               [messageModule]="messageModule">
+                            </app-error-message>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary me-2" (click)="uploadKyc()">Submit</button>
+                    <button class="btn btn-light">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+
+
+
+    <app-loading *ngIf="loading"></app-loading>
+
+
+</div>

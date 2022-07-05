@@ -1,0 +1,100 @@
+<div class="page-header">
+    <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+            <i class="mdi mdi-home"></i>
+        </span> List of Affiliates
+    </h3>
+
+    <div class="col-sm-5">
+        <button type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <div class="handle"></div>
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-4">
+                        <div class="Refference"></div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+
+                    </div>
+                    <div class="col-6 search">
+                        <form class="example" action="/action_page.php" style="margin:auto;max-width:500px">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                            <input type="text" placeholder="Search.." name="search2">
+
+                        </form>
+
+
+                    </div>
+                    <div class="col-3">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+
+
+                        </label>
+                        <div class="d-inline p-2 bg-link text-blue">Activated</div>
+
+                    </div>
+                </div>
+                <!--<h4 class="card-title">List of Users</h4>-->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th> Request Id </th>
+                                <th> Name </th>
+                                <th> Approval Status</th>
+                                <th> KYC Status </th>
+                                <th> KYC Remark </th>
+                                <th> Affiliate Payment<br /> Status</th>
+                                <th> Resource Length</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let member of usersList">
+                                
+                                <td> {{member[0]}} </td>
+                                <td> {{member[1]}} </td>
+                                <td>
+                                    <label class="badge" [ngClass]="{'badge-gradient-success': member[49] === 'Approved', 'badge-danger' : member[49] === 'Pending' }">{{member[49]}}</label>
+                                </td>  
+                                <td>
+                                    <label class="badge" [ngClass]="{'badge-gradient-success': member[49] === 'Approved', 'badge-danger' : member[49] === 'Pending' }">{{member[49]}}</label>
+                                </td>   
+                                <td>
+                                    {{member[51]}}
+                                </td>
+                                <td>
+                                    <label class="badge" [ngClass]="{'badge-gradient-success': member[50] === 'Paid', 'badge-danger' : member[50] === 'UnPaid' }">{{member[50]}}</label>
+                                <td>{{member[53]}}</td>
+                                <td>
+                                    <label class="badge badge-gradient-info">VIEW</label> /
+                                    <label class="badge badge-gradient-success">UPDATED</label>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>

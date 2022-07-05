@@ -1,0 +1,82 @@
+<div class="auth-wrapper">
+    <div class="auth-wrapper-inner">
+        <div class="auth-container">
+            <div class="login-wrapper">
+                <form class="login-inner-wrapper" [formGroup]="patientLoginForm" (ngSubmit)="registeration()">
+                    <div class="form-logo">
+                        <img src="/assets/nixi-logo.png" alt="form-logo">
+                    </div>
+                    <p class="text">Register</p>
+                    <p class="text-danger text-center mt-3">{{errorMessage}}</p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <input type="text" formControlName="name" class="form-control" placeholder="Name" maxlength="50" />
+                                    <app-error-message [isSubmit]="submitted" inputKey="name" [formControls]="f"
+                                                       [messageModule]="messageModule">
+                                    </app-error-message>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <input type="text" formControlName="username" class="form-control" placeholder="Username" maxlength="50" />
+                                    <app-error-message [isSubmit]="submitted" inputKey="username" [formControls]="f"
+                                                       [messageModule]="messageModule">
+                                    </app-error-message>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <input type="text" formControlName="email" class="form-control" placeholder="Email" maxlength="50"/>
+                                    <app-error-message [isSubmit]="submitted" inputKey="email" [formControls]="f"
+                                                       [messageModule]="messageModule">
+                                    </app-error-message>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <input type="password" class="form-control" placeholder="Password" formControlName="password" maxlength="15" />
+                                    <app-error-message [isSubmit]="submitted" inputKey="password" [formControls]="f"
+                                                       [messageModule]="messageModule">
+                                    </app-error-message>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="captcha">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" placeholder="Captcha" id="cpatchaTextBox" class="form-control" formControlName="captcha" />
+                                <app-error-message [isSubmit]="submitted" inputKey="captcha" [formControls]="f"
+                                                   [messageModule]="messageModule">
+                                </app-error-message>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn submit-button btn-block" [disabled]="this.patientLoginForm.invalid" type="submit">Register</button>
+                    <p class="switch-text"><a routerLink="/auth/sign-in">Go to Login</a></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <app-loading *ngIf="loading"></app-loading>
+</div>

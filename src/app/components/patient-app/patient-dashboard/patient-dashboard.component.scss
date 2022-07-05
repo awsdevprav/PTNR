@@ -1,0 +1,105 @@
+.page-wrapper {
+    .page-tiles-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .tiles {
+            width: calc(100% / 4 - 11px);
+            background-color: #ffffff;
+            backdrop-filter: blur(26px);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 23px;
+            @media (max-width: 1000px) {
+                width: calc(100% / 2 - 11px);
+                margin-bottom: 20px;  
+            }
+            @media (max-width: 767px) {
+                width: calc(100% / 2 - 11px); 
+                margin-bottom: 20px; 
+            }
+            img {
+                width: 40px;
+            }
+
+            .text-count {
+                width: calc(100% - 65px);
+                margin-left: 25px;
+
+                .text-label {
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin-bottom: 0;
+                }
+
+                .count {
+                    color: #232548;
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    // dashboard table header
+    .dashboard-table-header {
+        display: flex;
+        align-items: center;
+        margin-top: 32px;
+
+        .head {
+            font-weight: bold;
+            font-size: 14px;
+            color: #232548;
+            margin: 0;
+        }
+
+        .date-time {
+            margin-left: 50px;
+            font-size: 14px;
+            color: #232548;
+            margin-bottom: 0;
+        }
+
+        .filter-dropdown {
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #ffffff;
+            border-radius: 4px;
+            // padding: 10px;
+            margin-left: auto;
+        }
+    }
+
+    
+
+    // .bottom-tiles
+    .dashboard-bottom-tiles {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 31px;
+
+        .navigation-tile {
+            color: inherit;
+            display: block;
+            text-decoration: none;
+            width: calc(100% / 3 - 10px);
+            .bottom-tiles {
+                background-color: #D8365D;
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 12px 26px rgba(16, 30, 115, 0.06);
+                border-radius: 8px;
+                padding: 44px;
+                text-align: center;
+            }
+        }
+    }
+}

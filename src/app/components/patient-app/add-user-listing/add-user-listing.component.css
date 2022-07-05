@@ -1,0 +1,24 @@
+th {
+    cursor: pointer;
+}
+.mt-top {
+    margin-top: 10px;
+}
+/*.btn{
+    margin:0px 10px !important;
+}*/
+
+.table th, .table td {
+    padding: 10px 5px 10px 5px;
+}
+td {
+    word-wrap: break-word;
+}
+.icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}
+.table-responsive{
+overflow:hidden !important;
+}
